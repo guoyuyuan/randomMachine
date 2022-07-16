@@ -11,9 +11,15 @@
 
 1.在main.py文件所在的路径下打开cmd
 2.执行以下命令：
-`pyinstaller main.py --noconsole --hidden-import PySide2.QtXml --icon="random_logo.ico"`
+`pyinstaller main.py --noconsole --hidden-import PySide2.QtXml"`
 即可将该程序打包为exe文件。
-
+3.将你下载的randomMachine文件目录下的random_machine.ui文件
+复制到 
+	在你下载的randomMachine文件目录\dist\main文件夹中
+4.
+将你下载的randomMachine文件目录下的txt文件夹
+复制到 
+	在你下载的randomMachine文件目录\dist\main文件夹中
 #### 使用说明
 
 1.直接在main.py文件中使用python解释器运行即可
