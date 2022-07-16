@@ -2,11 +2,12 @@ from PySide2.QtWidgets import QApplication, QMainWindow, QMessageBox, QWidget
 from PySide2.QtUiTools import QUiLoader
 from PySide2.QtGui import  QIcon
 import random
+import ctypes
 
 class Main:
     def __init__(self):
         # 加载ui文件
-        self.ui = QUiLoader().load('ui/random_machine.ui')
+        self.ui = QUiLoader().load('random_machine.ui')
 
         # 创建一个空列表，用于存储生成的指定数字
         self.number_list = []
@@ -288,17 +289,19 @@ class Main:
                 f.write(now_time + "：" + information + "\n")
         print("file Written Successfully")
 
+
 if __name__ == '__main__':
-    import ctypes
     # 加载ui文件
     app = QApplication([])
     # 加载 icon
-    app.setWindowIcon(QIcon('imgs/random_logo.png'))
+    # app.setWindowIcon(QIcon('imgs/random_logo.png'))
     # 将任务栏的图标跟窗口上的图标设为一致
-    ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID("myappid")
+    # ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID("myappid")
     m = Main()
     m.ui.show()
     app.exec_()
     # 在cmd中执行以下命令。即可将该程序打包成exe文件
-    # pyinstaller main.py --noconsole --hidden-import PySide2.QtXml --icon="imgs/random_logo.ico"
+    # pyinstaller main.py --noconsole --hidden-import PySide2.QtXml"
+    # pyinstaller main.py --noconsole --hidden-import PySide2.QtXml --icon="imgs/random_logo.ico" #打包图标
+
 
