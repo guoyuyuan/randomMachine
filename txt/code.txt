@@ -6,7 +6,7 @@ import random
 class Main:
     def __init__(self):
         # 加载ui文件
-        self.ui = QUiLoader().load('random_machine.ui')
+        self.ui = QUiLoader().load('ui/random_machine.ui')
 
         # 创建一个空列表，用于存储生成的指定数字
         self.number_list = []
@@ -281,7 +281,7 @@ class Main:
         # 获取当前的时间
         now_time = time.strftime('%Y-%m-%d %H:%M:%S',time.localtime())
         # 将历史记录写入日志文件中
-        with open('log.txt','a') as f:
+        with open('txt/log.txt', 'a') as f:
             if information != None:
                 f.write(now_time + "：" + self.information + "\n")
             else:
@@ -293,12 +293,12 @@ if __name__ == '__main__':
     # 加载ui文件
     app = QApplication([])
     # 加载 icon
-    app.setWindowIcon(QIcon('random_logo.png'))
+    app.setWindowIcon(QIcon('imgs/random_logo.png'))
     # 将任务栏的图标跟窗口上的图标设为一致
     ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID("myappid")
     m = Main()
     m.ui.show()
     app.exec_()
     # 在cmd中执行以下命令。即可将该程序打包成exe文件
-    # pyinstaller main.py --noconsole --hidden-import PySide2.QtXml --icon="random_logo.ico"
+    # pyinstaller main.py --noconsole --hidden-import PySide2.QtXml --icon="imgs/random_logo.ico"
 
